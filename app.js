@@ -13,6 +13,8 @@ const eventListeners = () => {
 
   const clickSubmitEvent = () => {
   }
+  const clickCopyGradientEvent = () => {
+  }
   
   const clickRandomGradientEvent = () => {
     const button = document.querySelector('#random-gradient-button').addEventListener('click', () => {
@@ -20,11 +22,17 @@ const eventListeners = () => {
     })
   }
 
-  const clickCopyGradientEvent = () => {
+  const copyGradientEvent = () => {
+    const clickTarget = document.querySelector('#gradient-string')
+    clickTarget.addEventListener('click', copyText())
   }
 
   clickRandomGradientEvent();
+  copyGradientEvent();
 }
+
+
+
   
 // logic -->
 
@@ -34,6 +42,7 @@ const setNewGradientBackground = (color1, color2) => {
 
   updateColorPicker(document.querySelector('#color1'), color1);
   updateColorPicker(document.querySelector('#color2'), color2);
+  udpateResult(newGradient);
 }
 
 const randNum = () => {
@@ -54,12 +63,19 @@ const randomHexoColor = () => {
 
 const updateColorPicker = (colorPicker, color) => {
   colorPicker.value = color
-  colorPicker.style.border = `10px solid ${color}`
-  colorPicker.style.background = `${color}`
-  colorPicker.style.display = "hidden"
-
 }
 
+const udpateResult = (gradient) => {
+  document.querySelector('#gradient-string').value = `background: ${gradient}`
+}
+
+const copyText = () => {
+  console.log('hello from inside copy text')
+  const copyText = document.querySelector('#gradient-string');
+  // copyText.select();
+  // document.execCommand('copy');
+  // console.log(`${copytText}`)
+}
 
     
 const run = () => {

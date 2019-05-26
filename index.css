@@ -24,11 +24,28 @@ body {
 }
 
 #color1, #color2 {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-
 }
-input[type="color"]::-webkit-color-swatch {
-	border: none;
+
+#random-gradient-button {
+  min-width: 80px;
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  border-radius: 30px;
+}
+
+#random-gradient-button:hover {
+  background: crimson;
+  color: white;
+}
+
+#gradient-string {
+  width: 100%;
+  text-align: center;
+}
+
+#gradient-string:hover {
+  border-color: crimson;
+  box-shadow: 0 0 2px 2px crimson; 
+  cursor: pointer;  
 }
