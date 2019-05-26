@@ -11,24 +11,25 @@
 </head>
 <body>
   <div id="page-container">
-    <div id="landing">
-      <h1 id="title">Gradient Generator</h1>
-      <p id="description">Description: How to use this website</p>
-    </div>
-    <div id="color-pickers">
-     <input id="color1" type="color">
-      <input id="color2" type="color">
-    </div>
-    <button id="random-gradient-button" class="btn btn-primary">Random Gradient</button>
-    <div id="result">
-      <p></p>
-    </div>
+      <div id="landing" class="jumbotron">
+        <h1 id="title" class="display-4">Gradient Generator</h1>
+        <p id="description" class="lead">Generate a random gradient to use on your website.</p>
+        
+        <div id="color-pickers">
+          <input id="color1" type="color">
+          <input id="color2" type="color">
+        </div>
 
-    
+        <a id="random-gradient-button"class="btn btn-primary btn-lg" href="#" role="button">GO</a>
+
+        <div id="result">
+          <p id="gradient-string"></p>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-
-  <script src="./app.js"> window.onload = app() </script>
+  <script src="bundle.js"> window.onload = run(); </script>
 </body>
 </html>
 

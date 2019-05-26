@@ -1,4 +1,10 @@
+const jscolor = require('jscolor')
+module.exports = function (n) { return n * 111 }
+// Using Browserify to add npm require() functionality to browser
+// To bundle app.js file, run browserify app.js > bundle.js
+
 const COLORS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+
 
 
   // events -->
@@ -21,14 +27,6 @@ const eventListeners = () => {
 }
   
 // logic -->
-const generateRandomGradient = () => {
-  let color1 = randomHexoColor();
-  let color2 = randomHexoColor();
-}
-
-const randNum = () => {
-  return Math.floor(Math.random() * COLORS.length)
-}
 
 const setNewGradientBackground = (color1, color2) => {
   const newGradient = createGradientString(color1, color2) 
@@ -36,6 +34,10 @@ const setNewGradientBackground = (color1, color2) => {
 
   updateColorPicker(document.querySelector('#color1'), color1);
   updateColorPicker(document.querySelector('#color2'), color2);
+}
+
+const randNum = () => {
+  return Math.floor(Math.random() * COLORS.length)
 }
 
 const createGradientString = (color1, color2) => {
@@ -52,9 +54,11 @@ const randomHexoColor = () => {
 
 const updateColorPicker = (colorPicker, color) => {
   colorPicker.value = color
-}
-  
+  colorPicker.style.border = `10px solid ${color}`
+  colorPicker.style.background = `${color}`
+  colorPicker.style.display = "hidden"
 
+}
 
 
     

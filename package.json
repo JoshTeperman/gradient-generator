@@ -1,0 +1,22 @@
+{
+  "name": "gradient-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshTeperman/gradient-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshTeperman/gradient-generator/issues"
+  },
+  "homepage": "https://github.com/JoshTeperman/gradient-generator#readme",
+  "dependencies": {
+    "jscolor": "^0.3.0"
+  }
+}
