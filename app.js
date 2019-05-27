@@ -30,15 +30,18 @@ const eventListeners = () => {
 
   const clickBookmarkedGradientEvent = () => {
     const button = document.querySelector('#bookmark-gradient-button');
+    const bookmarks = document.querySelector('#bookmarks')
     button.addEventListener('click', (event) => {
-      console.log('clicked bookmark')
-      let storageData = JSON.parse(localStorage.gradientMemory)
-      const newBookmark = document.createElement('li')
-      newBookmark.className = "bookmark"
-      newBookmark.style.background = `${storageData[storageData.length - 1]}`
-      console.log(newBookmark)
-      document.querySelector('#bookmarks').appendChild(newBookmark)  
-      // debugger
+      const currentGradient = document.body.style.background
+      const bookmarksArray = document.querySelectorAll('.bookmark')
+  
+      if (!Array.from(bookmarksArray).find(bookmark => bookmark.style.background = currentGradient)) {
+        const newBookmark = document.createElement('li')
+        newBookmark.className = "bookmark"
+        newBookmark.style.background = currentGradient
+        bookmarks.appendChild(newBookmark)  
+        bookmarks.style.display = 'block'
+      }
     })
   }
 
@@ -77,17 +80,12 @@ const randomHexoColor = () => {
 
 const updateGradientMemory = (gradientString) => {
   if (localStorage.gradientMemory) {
-    // console.log('gradientMemory found in localStorage')
     gradientMemory = JSON.parse(localStorage.gradientMemory)
-    // console.log('fetched gradient memory from localStorage')
   }
 
   if (!gradientMemory.includes(gradientString)) {
-    // console.log(gradientMemory)
     gradientMemory.push(gradientString);
     localStorage.setItem('gradientMemory', JSON.stringify(gradientMemory));
-    // console.log(`updated gradient memory: ${gradientString}`)
-    // console.log(localStorage.gradientMemory)
   }
 }
 
@@ -112,3 +110,10 @@ const run = () => {
 
 run();
 eventListeners();
+
+/*
+access last gradient in memory: 
+let storageData = JSON.parse(localStorage.gradientMemory)
+newBookmark.style.background = `${storageData[storageData.length - 1]}`
+
+*/
