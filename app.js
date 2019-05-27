@@ -1,10 +1,11 @@
-const jscolor = require('jscolor')
-module.exports = function (n) { return n * 111 }
+// const jscolor = require('jscolor')
+// module.exports = function (n) { return n * 111 }
 // Using Browserify to add npm require() functionality to browser
 // To bundle app.js file, run browserify app.js > bundle.js
 
 const COLORS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 let gradientMemory = []
+let bookmarkID = 0
 
 
   // events -->
@@ -21,33 +22,44 @@ const eventListeners = () => {
     clickTarget.addEventListener('click', copyText())
   }
 
-  const clickPreviousGradientEvent = () => {
-    const button = document.querySelector('#previous-gradient-button')
-    button.addEventListener('click', () => {
-      // show previous gradient
+  const clickBookmarkEvent = () => {
+    const bookmarksArray = document.querySelectorAll('.bookmark')
+    bookmarksArray.forEach((gradientBookmark) => {
+      gradientBookmark.addEventListener('click', () => {
+        const gradient = gradientBookmark.style.background
+        document.body.style.background = gradient
+        updateResult(gradient)
+      })
     })
   }
 
-  const clickBookmarkedGradientEvent = () => {
+  const clickBookmarkGradientEvent = () => {
     const button = document.querySelector('#bookmark-gradient-button');
     const bookmarks = document.querySelector('#bookmarks')
     button.addEventListener('click', (event) => {
+      
       const currentGradient = document.body.style.background
-      const bookmarksArray = document.querySelectorAll('.bookmark')
-  
-      if (!Array.from(bookmarksArray).find(bookmark => bookmark.style.background = currentGradient)) {
-        const newBookmark = document.createElement('li')
-        newBookmark.className = "bookmark"
-        newBookmark.style.background = currentGradient
-        bookmarks.appendChild(newBookmark)  
-        bookmarks.style.display = 'block'
-      }
+      // const bookmarksArray = document.querySelectorAll('.bookmark')
+      // if (Array.from(bookmarksArray).find(bookmark => bookmark.style.background = currentGradient)) {
+      //   console.log('this bookmark already exists')
+      // } else {
+      //   console.log('this is a new bookmark')
+      // }
+      const newBookmark = document.createElement('li')
+      newBookmark.className = "bookmark"
+      newBookmark.setAttribute('id', `${bookmarkID}`)
+      bookmarkID += 1
+      newBookmark.style.background = currentGradient
+      bookmarks.style.display = 'block'
+      bookmarks.appendChild(newBookmark)  
+      clickBookmarkEvent();
     })
   }
 
   clickRandomGradientEvent();
   copyGradientEvent();
-  clickBookmarkedGradientEvent();
+  clickBookmarkGradientEvent();
+
 
 }
 
