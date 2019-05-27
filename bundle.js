@@ -42,7 +42,6 @@ const eventListeners = () => {
         newBookmark.style.background = currentGradient
         bookmarks.appendChild(newBookmark)  
         bookmarks.style.display = 'block'
-
       }
     })
   }
