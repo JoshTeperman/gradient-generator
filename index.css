@@ -11,11 +11,20 @@ body {
 
 #bookmarks {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
   width: auto;
   padding: 0px;
-  /* background: white; */
+  display: none;
+  background: #e9ecef;
+  border-radius: .5erm;
+  padding: 5px;
+  list-style: transparent;
+}
+
+  .bookmark {
+  border: 1px solid black;
+  border-radius: 30px;
 }
 
 #landing {
