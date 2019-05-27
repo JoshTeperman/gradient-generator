@@ -26,8 +26,9 @@ const eventListeners = () => {
     const bookmarksArray = document.querySelectorAll('.bookmark')
     bookmarksArray.forEach((gradientBookmark) => {
       gradientBookmark.addEventListener('click', () => {
-        console.log('clicked bookmark')
-        document.body.style.background = gradientBookmark.style.background
+        const gradient = gradientBookmark.style.background
+        document.body.style.background = gradient
+        updateResult(gradient)
       })
     })
   }
