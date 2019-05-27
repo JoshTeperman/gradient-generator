@@ -1,5 +1,5 @@
-const jscolor = require('jscolor')
-module.exports = function (n) { return n * 111 }
+// const jscolor = require('jscolor')
+// module.exports = function (n) { return n * 111 }
 // Using Browserify to add npm require() functionality to browser
 // To bundle app.js file, run browserify app.js > bundle.js
 
