@@ -1,3 +1,5 @@
+URL: https://blissful-turing-52f2d5.netlify.com/#
+
 # About
 Designed to be as user friendly and simple as possible. This website has one job only - to help developers quickly and painlessly generate gradients, copy them, and use them in their own work. 
 
