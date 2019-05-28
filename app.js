@@ -6,11 +6,12 @@
 const COLORS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 let gradientMemory = []
 let bookmarkID = 0
+let bookmarksArray = document.querySelectorAll('.bookmark')
+
 
 
   // events -->
 const eventListeners = () => {
-  console.log('adding event listeners')
   const clickRandomGradientEvent = () => {
     const button = document.querySelector('#random-gradient-button').addEventListener('click', () => {
       setNewGradientBackground(randomHexoColor(), randomHexoColor());
@@ -23,8 +24,8 @@ const eventListeners = () => {
   }
 
   const clickBookmarkEvent = () => {
-    const bookmarksArray = document.querySelectorAll('.bookmark')
-    bookmarksArray.forEach((gradientBookmark) => {
+    bookmarksArray = document.querySelectorAll('.bookmark')
+    Array.from(bookmarksArray).forEach((gradientBookmark) => {
       gradientBookmark.addEventListener('click', () => {
         const gradient = gradientBookmark.style.background
         document.body.style.background = gradient
@@ -35,31 +36,28 @@ const eventListeners = () => {
 
   const clickBookmarkGradientEvent = () => {
     const button = document.querySelector('#bookmark-gradient-button');
-    const bookmarks = document.querySelector('#bookmarks')
+    const bookmarks = document.querySelector('#bookmarks')   
+    const bookmarksArray = bookmarks.children;
     button.addEventListener('click', (event) => {
-      
       const currentGradient = document.body.style.background
-      // const bookmarksArray = document.querySelectorAll('.bookmark')
-      // if (Array.from(bookmarksArray).find(bookmark => bookmark.style.background = currentGradient)) {
-      //   console.log('this bookmark already exists')
-      // } else {
-      //   console.log('this is a new bookmark')
-      // }
-      const newBookmark = document.createElement('li')
-      newBookmark.className = "bookmark"
-      newBookmark.setAttribute('id', `${bookmarkID}`)
-      bookmarkID += 1
-      newBookmark.style.background = currentGradient
-      bookmarks.style.display = 'block'
-      bookmarks.appendChild(newBookmark)  
-      clickBookmarkEvent();
-    })
-  }
+      if (!(Array.from(bookmarksArray).find((bookmark) => {
+          return bookmark.style.background === currentGradient
+      }))) {
+        const newBookmark = document.createElement('li')
+        newBookmark.setAttribute = ('id', 'bookmark')
+        newBookmark.classList = 'bookmark'
+        newBookmark.style.background = currentGradient
+        bookmarks.style.display = 'block'
+        bookmarks.appendChild(newBookmark)        
+        clickBookmarkEvent();
+        // debugger
+      }
+     })
+ }
 
   clickRandomGradientEvent();
   copyGradientEvent();
   clickBookmarkGradientEvent();
-
 
 }
 
