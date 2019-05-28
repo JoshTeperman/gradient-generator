@@ -4,6 +4,8 @@ Designed to be as user friendly and simple as possible. This website has one job
 Built as a static site rendered in the browser using Vanilla JS and hosted on Netlify. 
 This was a personal project built to scratch my own itch, and allowed me to practise client-side rendering and DOM manipulation, as well as LocalStorage, JSON parsing and manipulation.
 
+![Screenshot](/images/screenshot.png)
+
 # Notes
 - Not intended for mobile (not responsive for smaller than tablet view)
 
